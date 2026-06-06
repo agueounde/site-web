@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suivi Transfert - TransferBank</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-dark">
+
+    <!-- HEADER -->
+    <header class="header sticky">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-building-columns"></i>
+                    </div>
+                    <span>TransferBank</span>
+                </a>
+                <nav class="nav">
+                    <a href="dashboard.html" class="nav-link">Tableau de Bord</a>
+                    <a href="transfer.html" class="nav-link">Nouveau Transfert</a>
+                    <a href="history.html" class="nav-link">Historique</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" onclick="logout()">Déconnexion</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- TRACKING -->
+    <div class="dashboard-container">
+        <div class="container">
+            <div class="tracking-card">
+                <a href="history.html" class="btn-back">
+                    <i class="fa-solid fa-arrow-left"></i> Retour
+                </a>
+
+                <h1>Suivi de Transfert</h1>
+                <div class="tracking-id" id="trackingId">TRF-2024-001</div>
+
+                <!-- TRANSFER INFO -->
+                <div class="transfer-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Montant</span>
+                        <span class="detail-value" id="detailAmount">€ 1,000.00</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Bénéficiaire</span>
+                        <span class="detail-value" id="detailBeneficiary">Jean Dupont</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">IBAN</span>
+                        <span class="detail-value mono" id="detailIban">FR76...1590</span>
+                    </div>
+                </div>
+
+                <!-- PROGRESS -->
+                <div class="progress-section">
+                    <h2>État d'Avancement</h2>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progressBar" style="width: 30%"></div>
+                    </div>
+                    <div class="progress-status" id="progressStatus">Étape 1 sur 4 - En Attente de Validation</div>
+                </div>
+
+                <!-- STEPS -->
+                <div class="steps-timeline">
+                    <div class="step-item active" id="step1">
+                        <div class="step-marker">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <div class="step-content">
+                            <h3>Vérification Initiale</h3>
+                            <p>Vos informations ont été vérifiées</p>
+                            <span class="step-time">14 Déc 2024 - 10:30</span>
+                        </div>
+                    </div>
+
+                    <div class="step-item active" id="step2">
+                        <div class="step-marker">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <div class="step-content">
+                            <h3>Contrôle Administratif</h3>
+                            <p>En attente de code de validation administrateur</p>
+                            <span class="step-time">14 Déc 2024 - 10:35</span>
+                        </div>
+                    </div>
+
+                    <div class="step-item pending" id="step3">
+                        <div class="step-marker pending">
+                            <i class="fa-solid fa-hourglass-end"></i>
+                        </div>
+                        <div class="step-content">
+                            <h3>Code de Validation Requis</h3>
+                            <p>Veuillez entrer le code reçu de votre administrateur</p>
+                        </div>
+                    </div>
+
+                    <div class="step-item" id="step4">
+                        <div class="step-marker">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                        <div class="step-content">
+                            <h3>Finalisation</h3>
+                            <p>Transfert en cours de traitement final</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CODE INPUT -->
+                <div class="code-input-section" id="codeSection">
+                    <h2>Entrez le Code de Validation</h2>
+                    <p>Votre administrateur vous a fourni un code pour débloquer cette étape</p>
+                    <form class="code-form" id="codeForm">
+                        <input type="text" id="codeInput" placeholder="Entrez le code" maxlength="8" class="code-input" required>
+                        <button type="submit" class="btn btn-primary btn-lg">Valider</button>
+                    </form>
+                    <div id="codeError" class="error-message" style="display:none;">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        Code incorrect. Veuillez réessayer.
+                    </div>
+                </div>
+
+                <!-- COMPLETED STATE -->
+                <div class="completion-section" id="completionSection" style="display:none;">
+                    <div class="success-icon">
+                        <i class="fa-solid fa-check-circle"></i>
+                    </div>
+                    <h2>Transfert Complété!</h2>
+                    <p>Votre transfert a été traité avec succès.</p>
+                    <a href="dashboard.html" class="btn btn-primary">Retour au Tableau de Bord</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 TransferBank. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

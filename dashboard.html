@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord - TransferBank</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-dark">
+
+    <!-- HEADER -->
+    <header class="header sticky">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-building-columns"></i>
+                    </div>
+                    <span>TransferBank</span>
+                </a>
+                <nav class="nav">
+                    <a href="dashboard.html" class="nav-link active">Tableau de Bord</a>
+                    <a href="transfer.html" class="nav-link">Nouveau Transfert</a>
+                    <a href="history.html" class="nav-link">Historique</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" onclick="logout()">Déconnexion</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- DASHBOARD -->
+    <div class="dashboard-container">
+        <div class="container">
+            <!-- WELCOME -->
+            <div class="welcome-card">
+                <div>
+                    <h1>Bienvenue!</h1>
+                    <p id="userName">Utilisateur</p>
+                </div>
+                <a href="transfer.html" class="btn btn-primary">
+                    <i class="fa-solid fa-plus"></i>
+                    Nouveau Transfert
+                </a>
+            </div>
+
+            <!-- BALANCE CARDS -->
+            <div class="balance-cards">
+                <div class="balance-card">
+                    <div class="balance-header">
+                        <h3>Solde Principal</h3>
+                        <i class="fa-solid fa-wallet"></i>
+                    </div>
+                    <div class="balance-amount">€ 5,000.00</div>
+                    <div class="balance-info">Compte Chèques</div>
+                </div>
+                <div class="balance-card">
+                    <div class="balance-header">
+                        <h3>Épargne</h3>
+                        <i class="fa-solid fa-piggy-bank"></i>
+                    </div>
+                    <div class="balance-amount">€ 15,000.00</div>
+                    <div class="balance-info">Compte Épargne</div>
+                </div>
+                <div class="balance-card">
+                    <div class="balance-header">
+                        <h3>Transferts ce Mois</h3>
+                        <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                    </div>
+                    <div class="balance-amount">€ 2,500.00</div>
+                    <div class="balance-info">Total effectué</div>
+                </div>
+            </div>
+
+            <!-- RECENT TRANSFERS -->
+            <div class="section-card">
+                <div class="section-header">
+                    <h2>Transferts Récents</h2>
+                    <a href="history.html" class="link">Voir tout</a>
+                </div>
+                <div class="transfers-list" id="recentTransfers">
+                    <div class="transfer-item">
+                        <div class="transfer-info">
+                            <div class="transfer-icon pending">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <div class="transfer-title">Transfert vers Compte Externe</div>
+                                <div class="transfer-date">14 Décembre 2024</div>
+                            </div>
+                        </div>
+                        <div class="transfer-amount pending">-€ 1,000.00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 TransferBank. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

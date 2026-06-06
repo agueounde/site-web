@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nouveau Transfert - TransferBank</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-dark">
+
+    <!-- HEADER -->
+    <header class="header sticky">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-building-columns"></i>
+                    </div>
+                    <span>TransferBank</span>
+                </a>
+                <nav class="nav">
+                    <a href="dashboard.html" class="nav-link">Tableau de Bord</a>
+                    <a href="transfer.html" class="nav-link active">Nouveau Transfert</a>
+                    <a href="history.html" class="nav-link">Historique</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" onclick="logout()">Déconnexion</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- TRANSFER FORM -->
+    <div class="dashboard-container">
+        <div class="container">
+            <div class="form-card">
+                <h1>Effectuer un Transfert</h1>
+                <p>Remplissez les informations ci-dessous</p>
+
+                <form class="transfer-form" id="transferForm">
+                    <!-- MONTANT -->
+                    <div class="form-section">
+                        <h3>Détails du Transfert</h3>
+                        
+                        <div class="form-group">
+                            <label for="amount">Montant à Transférer (€)</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-euro-sign"></i>
+                                <input type="number" id="amount" name="amount" placeholder="0.00" min="0" step="0.01" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="currency">Devise de Réception</label>
+                                <select id="currency" name="currency">
+                                    <option value="EUR">Euro (EUR)</option>
+                                    <option value="USD">Dollar US (USD)</option>
+                                    <option value="GBP">Livre Sterling (GBP)</option>
+                                    <option value="CHF">Franc Suisse (CHF)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="country">Pays Destination</label>
+                                <input type="text" id="country" name="country" placeholder="France" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- INFOS BANCAIRES -->
+                    <div class="form-section">
+                        <h3>Informations Bancaires</h3>
+                        
+                        <div class="form-group">
+                            <label for="beneficiary">Nom du Bénéficiaire</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-user"></i>
+                                <input type="text" id="beneficiary" name="beneficiary" placeholder="Jean Dupont" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="iban">IBAN</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-credit-card"></i>
+                                <input type="text" id="iban" name="iban" placeholder="FR76 3000 2005 5098 0445 1590" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bank">Banque</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-building"></i>
+                                <input type="text" id="bank" name="bank" placeholder="Société Générale" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="motif">Motif du Transfert</label>
+                            <textarea id="motif" name="motif" placeholder="Raison du transfert..." rows="3" required></textarea>
+                        </div>
+                    </div>
+
+                    <!-- FRAIS -->
+                    <div class="form-info">
+                        <div class="info-item">
+                            <span>Frais de Transfert:</span>
+                            <strong>€ 5.00</strong>
+                        </div>
+                        <div class="info-item">
+                            <span>Montant Total Débité:</span>
+                            <strong id="totalAmount">€ 0.00</strong>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block btn-lg">Soumettre le Transfert</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 TransferBank. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - TransferBank</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-dark">
+
+    <!-- HEADER -->
+    <header class="header sticky">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-shield"></i>
+                    </div>
+                    <span>TransferBank Admin</span>
+                </a>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" onclick="logoutAdmin()">Déconnexion Admin</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ADMIN DASHBOARD -->
+    <div class="admin-container">
+        <div class="container">
+            <h1>Tableau de Bord Administrateur</h1>
+
+            <!-- STATS -->
+            <div class="admin-stats">
+                <div class="stat-card">
+                    <div class="stat-icon pending">
+                        <i class="fa-solid fa-hourglass-end"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-label">En Attente</div>
+                        <div class="stat-value">3</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon completed">
+                        <i class="fa-solid fa-check-circle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-label">Complétés</div>
+                        <div class="stat-value">47</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-euro-sign"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-label">Volume Total</div>
+                        <div class="stat-value">€ 25,500</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PENDING TRANSFERS -->
+            <div class="admin-section">
+                <h2>Demandes en Attente de Validation</h2>
+                <div class="admin-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Client</th>
+                                <th>Montant</th>
+                                <th>Bénéficiaire</th>
+                                <th>Étape</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminTransfersList">
+                            <tr>
+                                <td><code>TRF-2024-001</code></td>
+                                <td>Jean Dupont</td>
+                                <td>€ 1,000.00</td>
+                                <td>Jean Dupont</td>
+                                <td><span class="step-badge">Étape 2/4</span></td>
+                                <td>
+                                    <button class="btn btn-small btn-primary" onclick="generateCode('TRF-2024-001')">Générer Code</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- CODE GENERATOR -->
+            <div class="admin-section">
+                <h2>Générateur de Code de Validation</h2>
+                <div class="code-generator">
+                    <div class="form-group">
+                        <label>Sélectionner un Transfert</label>
+                        <select id="transferSelect" class="form-control">
+                            <option value="TRF-2024-001">TRF-2024-001 - Jean Dupont - € 1,000.00</option>
+                        </select>
+                    </div>
+                    <div class="code-display">
+                        <div class="code-box" id="generatedCode">
+                            <i class="fa-solid fa-key"></i>
+                            <span>Code: ADMIN-2024</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="copyCode()">Copier le Code</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 TransferBank Admin. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
