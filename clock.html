@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Clock - Multi Timezone Display</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/clock.css">
+</head>
+<body class="bg-dark">
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <span>World Clock</span>
+                </div>
+                <nav class="nav">
+                    <a href="#analog" class="nav-link active">Analog</a>
+                    <a href="#digital" class="nav-link">Digital</a>
+                    <a href="#timezones" class="nav-link">Timezones</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="main-container">
+        <div class="container">
+            
+            <!-- DIGITAL CLOCK -->
+            <section class="clock-section" id="digital">
+                <div class="section-title">
+                    <h2>Digital Clock</h2>
+                    <p>Current Local Time</p>
+                </div>
+                <div class="digital-clock-wrapper">
+                    <div class="digital-clock">
+                        <div class="time-display" id="digitalTime">00:00:00</div>
+                        <div class="time-info">
+                            <span class="date" id="dateDisplay">Monday, January 01, 2024</span>
+                            <span class="period" id="periodDisplay">AM</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ANALOG CLOCK -->
+            <section class="clock-section" id="analog">
+                <div class="section-title">
+                    <h2>Analog Clock</h2>
+                    <p>Classic Timepiece</p>
+                </div>
+                <div class="analog-clock-wrapper">
+                    <div class="analog-clock">
+                        <div class="clock-face">
+                            <div class="center-dot"></div>
+                            <div class="hand hour-hand" id="hourHand"></div>
+                            <div class="hand minute-hand" id="minuteHand"></div>
+                            <div class="hand second-hand" id="secondHand"></div>
+                            
+                            <!-- Clock Numbers -->
+                            <div class="numbers">
+                                <span class="number n1">1</span>
+                                <span class="number n2">2</span>
+                                <span class="number n3">3</span>
+                                <span class="number n4">4</span>
+                                <span class="number n5">5</span>
+                                <span class="number n6">6</span>
+                                <span class="number n7">7</span>
+                                <span class="number n8">8</span>
+                                <span class="number n9">9</span>
+                                <span class="number n10">10</span>
+                                <span class="number n11">11</span>
+                                <span class="number n12">12</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TIMEZONE CLOCKS -->
+            <section class="clock-section" id="timezones">
+                <div class="section-title">
+                    <h2>World Timezones</h2>
+                    <p>Current Time Around The Globe</p>
+                </div>
+                
+                <!-- TIMEZONE CONTROLS -->
+                <div class="timezone-controls">
+                    <input type="text" id="searchTimezone" class="search-input" placeholder="Search timezone...">
+                    <button class="btn btn-primary" onclick="addCustomTimezone()">+ Add Timezone</button>
+                </div>
+
+                <!-- TIMEZONE GRID -->
+                <div class="timezone-grid" id="timezoneGrid">
+                    <!-- Timezones will be populated by JavaScript -->
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- MODAL FOR ADDING TIMEZONE -->
+    <div class="modal" id="timezoneModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Custom Timezone</h3>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <select id="timezoneSelect" class="timezone-select">
+                    <!-- Options will be populated by JavaScript -->
+                </select>
+                <input type="text" id="timezoneLabel" class="timezone-label" placeholder="Label (optional)">
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="saveTimezone()">Add</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 World Clock. Display current time in any timezone worldwide.</p>
+        </div>
+    </footer>
+
+    <script src="js/clock.js"></script>
+</body>
+</html>
